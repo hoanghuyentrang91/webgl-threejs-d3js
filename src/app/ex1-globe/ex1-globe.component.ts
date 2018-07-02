@@ -36,7 +36,7 @@ export class Ex1GlobeComponent implements OnInit {
 				scene.add( group );
 				// earth
 				var loader = new THREE.TextureLoader();
-				loader.load( '../../assets/textures/land_ocean_ice_cloud_2048.jpg', function ( texture ) {
+				loader.load( '../../assets/textures/world_image_4096x2048.jpg', function ( texture ) {
 					var geometry = new THREE.SphereGeometry( 200, 20, 20 );
 					var material = new THREE.MeshBasicMaterial( { map: texture, overdraw: 0.5 } );
 					var mesh = new THREE.Mesh( geometry, material );
@@ -69,6 +69,7 @@ export class Ex1GlobeComponent implements OnInit {
         renderer = new THREE.WebGLRenderer( { antialias: true } );
         renderer.setSize( window.innerWidth, window.innerHeight );
         container.appendChild( renderer.domElement );
+        window.addEventListener('resize', onWindowResize, false);
 			}
 			function onWindowResize() {
 				windowHalfX = window.innerWidth / 2;

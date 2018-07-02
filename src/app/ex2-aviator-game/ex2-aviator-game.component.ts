@@ -26,8 +26,7 @@ export class Ex2AviatorGameComponent implements OnInit {
 
     // THREEJS RELATED VARIABLES
 
-    var scene,
-      camera, fieldOfView, aspectRatio, nearPlane, farPlane,
+    var scene, camera, fieldOfView, aspectRatio, nearPlane, farPlane,
       renderer, container;
 
     //SCREEN & MOUSE VARIABLES
