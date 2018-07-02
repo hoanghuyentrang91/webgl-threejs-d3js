@@ -23,7 +23,7 @@ export class Ex1GlobeComponent implements OnInit {
 			var group;
 			var mouseX = 0, mouseY = 0;
 			var windowHalfX = window.innerWidth / 2;
-			var windowHalfY = window.innerHeight / 2;
+      var windowHalfY = window.innerHeight / 2;
 			init();
 			animate();
 			function init() {
@@ -70,14 +70,17 @@ export class Ex1GlobeComponent implements OnInit {
         renderer.setSize( window.innerWidth, window.innerHeight );
         container.appendChild( renderer.domElement );
         window.addEventListener('resize', onWindowResize, false);
-			}
+        window.addEventListener('mousemove', onDocumentMouseMove, false);
+
+      }
 			function onWindowResize() {
 				windowHalfX = window.innerWidth / 2;
 				windowHalfY = window.innerHeight / 2;
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
 				renderer.setSize( window.innerWidth, window.innerHeight );
-			}
+      }
+
 			function onDocumentMouseMove( event ) {
 				mouseX = ( event.clientX - windowHalfX );
 				mouseY = ( event.clientY - windowHalfY );
@@ -91,9 +94,10 @@ export class Ex1GlobeComponent implements OnInit {
 				camera.position.x += ( mouseX - camera.position.x ) * 0.05;
 				camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
 				camera.lookAt( scene.position );
-				group.rotation.y -= 0.005;
+				// group.rotation.y -= 0.005;
 				renderer.render( scene, camera );
       }
+      
     }
 
 }
